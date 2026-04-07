@@ -1,0 +1,946 @@
+Delivered-To: lucas.jprm27@gmail.com
+Received: by 2002:ac4:b9cd:0:b0:77b:504e:d89a with SMTP id w13csp1314998pih;
+        Mon, 6 Apr 2026 04:01:05 -0700 (PDT)
+X-Received: by 2002:a05:620a:112d:b0:8d7:a2b3:3ab1 with SMTP id af79cd13be357-8d7a2b33c00mr396015985a.11.1775473264753;
+        Mon, 06 Apr 2026 04:01:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775473264; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RAmC3rpSBDzGJnF+vbTayJH/mSmrBZBLOhXO15K68XXUdDoayKzBrv6+V4r6JdzpUe
+         4L7RDJdsGHKMgzcP54eofQrXT0rqy8amP4uvahCSJ9+mGCFHpeb8r8FzS0QV5ELLO9cQ
+         PeYhLbJ1NhPTRJqGOwXtiLQqmwV9s4EHFQ7LqUcC/cRt6v0uNPVG0dMM+r4cR8nIXU6v
+         rI9x2i+oCB70KRNXfFn51S6fpnXx40iFFk8PWRwGR536jQ3Ih9esPc66EotPYaIRAMw0
+         XN3R8bDXKk6nUyv9IU0P3jnuMbwDeB5Cwcku/FRAV5JUSNjtzWHt10Vjo8Z0tDY51vhw
+         tsFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:list-unsubscribe-post:precedence:mime-version:subject
+         :message-id:to:reply-to:from:date:list-unsubscribe:dkim-signature
+         :dkim-signature;
+        bh=YLjndFGGtJQfzdHMk095zKBjN8rDrRiTsv6tokQrN1U=;
+        fh=MSZj4LZh/dHCvBT3AZIQ0QHPPJc65hS5n3BLF3epVtU=;
+        b=G/2JSubWeQIwHCgpB85Tpda+PazF6D6UtwXbxOANceWFaOBVm6fHZamAh91wVp2aGv
+         mszXaMFwOu5wdIw6ibzbJPbckvgzFeBB7X6iVa2ST+1jbaQbAg/64X7+xbuy8+6NUh8y
+         sf+aWT5AmIpja+R/BTlGueG8CZxCdseM3rs4KqKkc4T7bhlGvwPWLB+yUHepE+7N6oK+
+         9CsyRcNhe0KCmAZoFFOdK87M7JYmOyWNLlNJHiEC1QalYUosT1kYKjLwoQqBbcKm+NAd
+         LckxTlAfCROzte0+M/erDb4pbehYefXAmbkz3q60TELQxdDOlTVYLm5HWfswh19ZBlfP
+         iitQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@21748317m.alura.com.br header.s=hs2 header.b=e7lYNgI1;
+       dkim=pass header.i=@7daysofcode.io header.s=hs2-21748317 header.b="QoV/Bq6Z";
+       spf=pass (google.com: domain of 1axbvr9yd5y3144d60lmx4c78syo0y2dff4zlg-lucas+2ejprm27=gmail.com@21748317m.alura.com.br designates 141.193.184.204 as permitted sender) smtp.mailfrom="1axbvr9yd5y3144d60lmx4c78syo0y2dff4zlg-lucas+2Ejprm27=gmail.com@21748317m.alura.com.br";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=7daysofcode.io
+Return-Path: <1axbvr9yd5y3144d60lmx4c78syo0y2dff4zlg-lucas+2Ejprm27=gmail.com@21748317m.alura.com.br>
+Received: from bdl85cu.21748317m.alura.com.br (bdl85cu.21748317m.alura.com.br. [141.193.184.204])
+        by mx.google.com with ESMTPS id af79cd13be357-8d67e217193si515118385a.304.2026.04.06.04.01.04
+        for <lucas.jprm27@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 06 Apr 2026 04:01:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 1axbvr9yd5y3144d60lmx4c78syo0y2dff4zlg-lucas+2ejprm27=gmail.com@21748317m.alura.com.br designates 141.193.184.204 as permitted sender) client-ip=141.193.184.204;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@21748317m.alura.com.br header.s=hs2 header.b=e7lYNgI1;
+       dkim=pass header.i=@7daysofcode.io header.s=hs2-21748317 header.b="QoV/Bq6Z";
+       spf=pass (google.com: domain of 1axbvr9yd5y3144d60lmx4c78syo0y2dff4zlg-lucas+2ejprm27=gmail.com@21748317m.alura.com.br designates 141.193.184.204 as permitted sender) smtp.mailfrom="1axbvr9yd5y3144d60lmx4c78syo0y2dff4zlg-lucas+2Ejprm27=gmail.com@21748317m.alura.com.br";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=7daysofcode.io
+Received: by 172.16.14.73 with SMTP id a0cgfhxxtp4xci4lpnz0g3q5ofcsjkgik5az1axzbgq;
+        Mon, 6 Apr 2026 11:01:04 GMT
+DKIM-Signature: v=1; s=hs2; d=21748317m.alura.com.br; 
+        i=@21748317m.alura.com.br; 
+        h=sender:from:from:reply-to:to:to:cc:cc:subject:subject:list-unsubscribe:form-sub:feedback-id:list-unsubscribe-post; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=YLjndFGGtJQfzdHMk095zKBjN8rDrRiTsv6tokQrN1U=; 
+        b=e7lYNgI1YQ+pldPLXcEHEBrtkv1CheqaEbJxRaze/9rXU157yPlhNzreLfvGvy
+         3QktHZYSCEywd7MoYmOSK2jFlUX7jXwv75reEueDIgYD+Bha+IX+kPQ7YK2gqrq
+         vIyaBZD4HprNdYFoS1MMMcXnuV7/TnkZK3EIrLxicLzu78iNrLmoLds3J3surME
+         JBF0h8hfkC1tg2pKjUYTcSWfPoE1PU+4nDlfbPPIvXMAIe/+DdfCfWpkAFeVips
+         6XwuK8D6A/8P3RHi3Fx1ynpCnKBb9Sk0BDQ0bXCCNxW6/ngkbnWPsk+WraEnf0R
+         ZEgi/Rep1aQxKNGEJjMOjW4rVAug==; q=dns/txt; t=1775473264; 
+        x=1775736064;
+DKIM-Signature: v=1; s=hs2-21748317; d=7daysofcode.io; 
+        i=@7daysofcode.io; 
+        h=sender:from:from:reply-to:to:to:cc:cc:subject:subject:list-unsubscribe:form-sub:feedback-id:list-unsubscribe-post; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=YLjndFGGtJQfzdHMk095zKBjN8rDrRiTsv6tokQrN1U=; 
+        b=QoV/Bq6ZQR1lAsnfq/AX6TPEmfiGS72ebBDk5rlrVLm/cCdqd6wfaSEHoT160z
+         5GkdohuxNqwKQBMyRqOAZr4OMQOO/2cySdrBDq3P0bxMfQznvCWj9M3XJzEmRlI
+         3h0QRvn1WDT1H6nW5TF5dte3ibcVRKyxWNvNi+Ie4UlOcSG+hctAxEALDN/W7dK
+         qqgJw3htiuXhjYQzLw7OJLpbfwjFx2+BzY2V90uVMYe1MvMFKXaLd9rPJJ5ZJvu
+         Dwo9K8rP506hs4Nhc78AsG+n6RzhpBolYBdrP2Z9o3LDZ9Yc4Ayel/lCczJKh7N
+         lflznZzddLCKx/eum341BdvTOBZQ==; q=dns/txt; t=1775473264; 
+        x=1775736064;
+Return-Path: <1axbvr9yd5y3144d60lmx4c78syo0y2dff4zlg-lucas+2Ejprm27=gmail.com@21748317m.alura.com.br>
+X-HS-Cid: 1axe2q6qfn99642ums9htdcxl6d8t9b9q05ook
+List-Unsubscribe: <mailto:1axc2hfh021pm1zqc4xgto0luhofdtvg563g9w-lucas+2Ejprm27=gmail.com@21748317m.alura.com.br?subject=unsubscribe>, <https://empresas.alura.com.br/hs/subscription-preferences/v2/unsubscribe-all?data=W2nXS-N30h-SvW30jmhj2MCPYHW2YxWbp3NX3ZGW1Nt_c91XxThFW2zPcGw3BVzmxW45RdH01LdSHJW3-162l2WhRx1W3ddfL22WN9WLW2nTz_v47Lv2TW1LHFNM2Pn6l9W4rxK0j2WLYLdW3DW9-F1N4QthW4hMjTF1VhLjFW2TKWL83ZJ-bqW2w4QCf3dzBGsW2MpZbf3F5S9hW2x-ktL2y0qWyW3_vbH13bfHj5W1SbBDY3JZy45W1S8YqJ4r6DffW3NBZx93SPrLQW1LF4ws4kcRRCW2CYKb12PTnl6W4hHb2f2YtBDcW43Zw1p1Bws-9W3R62n74kM_yJW3SNB632YKRG-W3DKbdn3XYKkKW2HpCPJ2Wrf_CW2PWqYR1X5FJSW1S3Vjx3LQ03dW1XsmQp2FD2zzW1Lwn_y252Zh4W3C0D1Z49mMD3W49n52x22_S4KW1LnkVl1L5r4XW3CjsGs3bcFn4W3JPq153dymGcW4ckvXY41yLlsW345ZS838b-Y0W3GSXqN2nN3FxW3R634347WdyXW3QLKPs1-VBhLW2xZ7M21Xnc2SW49Krkz3bgwfBW3W1VYL1_cVWnW3JGhCH41PzmgW2-Nchq3blHPrW3QFHbM1-XDtpW2RMJjS2p9cgMW3dzbwQ34Hk-5W1LyW-F2v-ypVW24T1Nv367tLTW45pnZ83bkvdQW4kM3JL3VGWc5f4phZ6604>
+Date: Mon, 6 Apr 2026 08:01:04 -0300
+From: Gi Moeller <contato@7daysofcode.io>
+Reply-To: contato@7daysofcode.io
+To: lucas.jprm27@gmail.com
+Message-ID: <1775473263843.87085384-d284-4488-a857-c15de2050de9@21748317m.alura.com.br>
+Subject: =?utf-8?Q?#7DaysOfCode_-_HTML_e_CSS_1/7:_Cabe=C3=A7alho?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_10211973_732731535.1775473264006"
+Precedence: bulk
+X-Report-Abuse-To: abuse@hubspot.com (see
+ https://policy.hubspot.com/abuse-complaints)
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Feedback-ID: aem8fd7:aid30mbc:aib1s:HubSpot
+
+------=_Part_10211973_732731535.1775473264006
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Oie, Luvas, tudo bem? Aqui =C3=A9 a Gi Moeller do Girl Coding! Fico muito f=
+eliz que voc=C3=AA tenha topado fazer esse desafio comigo!
+
+=C3=89 muito importante sempre praticar nossos conhecimentos ap=C3=B3s apre=
+nder conceitos novos em um curso ou por conta pr=C3=B3pria, colocando a m=
+=C3=A3o na massa mesmo!
+
+Uma pergunta que voc=C3=AA provavelmente j=C3=A1 se fez algum dia =C3=A9: =
+=E2=80=9CT=C3=A1, terminei esse curso, e agora? O que eu fa=C3=A7o?". Por e=
+sse motivo eu trouxe esse desafio, para voc=C3=AA colocar em pr=C3=A1tica t=
+udo o que voc=C3=AA sabe de HTML e CSS at=C3=A9 agora! Vamos abordar muitos=
+ conceitos importantes, como Flexbox, Grid, entre muitos outros. Ent=C3=A3o=
+, bora come=C3=A7ar?
+
+O escopo do projeto =C3=A9 o seguinte: uma empresa de TI quer desenvolver u=
+ma p=C3=A1gina destinada a novas contrata=C3=A7=C3=B5es e contratou voc=C3=
+=AA para desenvolv=C3=AA-la.
+
+Para isso, te enviaram um layout no Figma. O Figma =C3=A9 um software que m=
+uitos designers utilizam para criar prot=C3=B3tipos. E a partir desse prot=
+=C3=B3tipo que eu vou disponibilizar, voc=C3=AA vai transform=C3=A1-lo em c=
+=C3=B3digo e dar vida real ao projeto! Beleza?
+
+N=C3=A3o se preocupe, porque voc=C3=AA n=C3=A3o vai precisar editar nada no=
+ Figma ou nem mesmo baixar o aplicativo. Basta acessar esse link (https://e=
+mpresas.alura.com.br/e3t/Ctc/I8+113/d2z6gD04/VWpjVX4T3LLKW4_FmW_3rdVxtW8wLj=
+j95MxMLPN8hWs5j3l5QzW8wLKSR6lZ3kNW7m5GQy80MhRhW1pfGJD1sjbNkN2zPgRzpP94QW4c9=
+kFC1mcZ6NW3nlKS_59g6QyW6SYPpY7JfjMzW1rlmrg3T9BfVW6p_v5C3_wcZwW128glL2BzysfW=
+6cYnd241YLcrW2TWXm24DBdYnW1_K9lF7jbNGpW2XL7QF1dSx4WW60TKLm6NljynW8qxB194Rq8=
+DqW4_5lPf3_9749W5L0cr578THXSW2B295x4YS-6HN3JVrN2Z7CGBW4sRj7K5tBxK3W3hR5MP6P=
+6dkfW2gxrcf1YpvN6N7PvLJwws5vFW3zFj4f8-h-v-W4M5bqB8KPNq_W4zxtGK1KdsCDVvYT7s8=
+Fzzd-W81WM2P6BWTZ-dGcMbd04 )  e voc=C3=AA j=C3=A1 vai conseguir visualizar =
+o layout! L=C3=A1, voc=C3=AA tamb=C3=A9m poder=C3=A1 visualizar todos os va=
+lores para espa=C3=A7amento, cores do projeto, tamanhos de texto, e muito m=
+ais!
+
+Agora que voc=C3=AA j=C3=A1 abriu o Figma do projeto, voc=C3=AA conseguiu v=
+er o que a empresa espera que voc=C3=AA entregue ao final dos pr=C3=B3ximos=
+ 7 dias.
+
+Neste primeiro dia, voc=C3=AA vai desenvolver o cabe=C3=A7alho da aplica=C3=
+=A7=C3=A3o, chamado normalmente de Navbar, que contempla o logo, o menu com=
+ as p=C3=A1ginas e tamb=C3=A9m os dois bot=C3=B5es do canto direito, como a=
+qui abaixo:
+
+DICA
+
+Utilize os conceitos que voc=C3=AA j=C3=A1 aprendeu de HTML e CSS para esti=
+lizar esse cabe=C3=A7alho e separe-o em tr=C3=AAs divis=C3=B3rias: logo, p=
+=C3=A1ginas e bot=C3=B5es. Lembrando que n=C3=A3o =C3=A9 necess=C3=A1rio ir=
+ de fato para outra p=C3=A1gina, ou dar alguma funcionalidade para o bot=C3=
+=A3o. O intuito deste desafio =C3=A9 apenas desenvolver o layout.
+
+Para o logotipo, voc=C3=AA pode exportar a imagem diretamente do arquivo do=
+ Figma e, ent=C3=A3o, criar uma pasta dentro do seu projeto para colocar a =
+imagem. Depois, basta utilizar a tag:
+
+<img src=3D""/>
+
+referenciando a imagem em quest=C3=A3o.
+
+EXTRA
+
+Vamos usar bastante sobre CSS Flexbox nesse projeto!
+
+Se voc=C3=AA ainda possui algumas d=C3=BAvidas sobre esse assunto, eu tenho=
+ dois v=C3=ADdeos no meu canal do Youtube em que eu explico mais sobre isso=
+:
+
+- CSS Flexbox #1 - Flex Container (https://empresas.alura.com.br/e3t/Ctc/I8=
++113/d2z6gD04/VWpjVX4T3LLKW4_FmW_3rdVxtW8wLjj95MxMLPN8hWs4q3l5QzW6N1vHY6lZ3=
+ndW3kbZ9m2yRXDdW3TvKM61nb6BPW1jXckR6xFNCSVJn2v_1WfsvwW9k17tk2KBmYsW1ywsv71C=
+b56pW6PDpcX7yzHNgVwX6Jn243Xx_W4-w0bD3mS5TkW16TPll4JyMKVW3T01JM4WkDpGW4WHvqR=
+3ZXLD4W4XZt5f8GRyhqW1GPS0H2pZ7P5W7Q5hmr9fn6CxW3h6XF31gTm5cN7YYrRqg2LpKW5ZMV=
+Th7cHsnsW54mKPl3kj5pqW7WgLgR8VcsXNVNSs_b2_vWr4W3QKN1N614Dbmf3WlhRd04 )
+
+- CSS Flexbox #2 - Flex Items (https://empresas.alura.com.br/e3t/Ctc/I8+113=
+/d2z6gD04/VWpjVX4T3LLKW4_FmW_3rdVxtW8wLjj95MxMLPN8hWs4q3l5QzW6N1vHY6lZ3mhW5=
+dpDPC89TXZxN778GRYBst3SW3fkP0t1qsCDJW1NkTvw2nrtd3W4zbC3K609FG_N3YG4RPQY5rXW=
+567gHk6DHP3jW971G507JJhMyW3CB0QM4Fdy2xM5YbG-gczQdW4yl6hQ17495HW3F-C9V93q4hf=
+VhVxrk16lP1tW5HSDz848HwtrW345lrb153l19W2fRK3j75DSCgW20314W8zvYSTW8F7wPq4J0k=
+bhW3gvp1-2Qct0fW7l3m-c46QPvtW1RC4d67TRXzkW1Y0n6T8KZxW5f6lVsCs04 )
+
+Ah, e n=C3=A3o se esque=C3=A7a de compartilhar o seu c=C3=B3digo no seu Git=
+Hub e nas suas redes sociais com a hashtag #7DaysOfCode, e tamb=C3=A9m com =
+#feedback7DoC caso voc=C3=AA queira alguma ajuda.
+
+Bons estudos, at=C3=A9 amanh=C3=A3!
+
+Giovanna Moeller
+
+Desenvolvedora Web & iOS
+
+Alura, Vila Mariana, S=C3=A3o Paulo, SP
+
+N=C3=A3o quero mais receber os Desafios (https://empresas.alura.com.br/hs/p=
+references-center/pt/direct?data=3DW2nXS-N30h-RWW2p0VJM41QVv4W3XvBjL2PPb-KW=
+45W0gN1BMNyhW4kH1TQ23r7LHW3QBhSW2xx9HpW1ZrNdm3M1xMvW2vPc3h4p9LXWW2nVn-r2PKr=
+M7W1ZdXnJ30txTQW3VBkTw3W1z1ZW2w4QCt3ZW3LFW3SBy1q2PmH1bW4pnD3l3_ZBQ3W2qVcpb3=
+XZ6ZVW3zfLNz3_HClZW4cPPdH2vHpyYW38lxQw3XGLw7W4cj94R4hqR2qW2zz54w3JT-_lW4kHN=
+XG234jr2W2r7jWQ4pxXkSW2vQRqV45wd1JW3FdscB2xyv8FW1VgZlr4mJp0rW47QH_z47lLRcW2=
+H-Qd220Z12BW47zmPP32rfP1W1Sf7WV4hCq26W3LFcnB3JX3WnW2Mqq2q2HHy2SW3_Dgz01Sb6Z=
+xW1L6dQB2nHv4lW1YYJkj32jDMTW1_2Fh630mm4qW3yRvbr38h5FPW2FZmQj3LG7kNW4ftvMX3N=
+QFcpW2HywZZ21hSB4W3jmK3n3BJB8BW23l_4t232dGHW2YmlcS1VqwcvW21hmJ14mDJsfW2sRpM=
+X3QCyskW1Btm1H2-Dj4kW38rT2s1V3HwCW4ffs712FFg3QW3_RWKw2FXK-RW3SSJw33Fd1HbW1S=
+kK3h3NT5zSW4mlj3q30sNCKW2MTblV3M63Q2W4mtnX62HPSHVW1ShxfB2RvbMzW36ywSH236tPV=
+W21jDb53K5p530&_hsenc=3Dp2ANqtz-8oSdqM9ykBsqvpjY9fqzbvCrEFNHJZZoV6xHRhpUAY7=
+QLkTpGrNJxm0P022acxlFsnk1Sexh8Dkbl3VFDF_03_GKpaOA&_hsmi=3D231336038 )
+------=_Part_10211973_732731535.1775473264006
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3=
+.org/1999/xhtml" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:=
+v=3D"urn:schemas-microsoft-com:vml" lang=3D"pt"><head>
+    <title>#7DaysOfCode - HTML e CSS 1/7: Cabe=C3=A7alho</title>
+    <meta property=3D"og:title" content=3D"#7DaysOfCode - HTML e CSS 1/7: C=
+abe=C3=A7alho">
+    <meta name=3D"twitter:title" content=3D"#7DaysOfCode - HTML e CSS 1/7: =
+Cabe=C3=A7alho">
+   =20
+   =20
+   =20
+<meta name=3D"x-apple-disable-message-reformatting">
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<style>
+a.cta_button{-moz-box-sizing:content-box !important;-webkit-box-sizing:cont=
+ent-box !important;box-sizing:content-box !important;vertical-align:middle}=
+.hs-breadcrumb-menu{list-style-type:none;margin:0px 0px 0px 0px;padding:0px=
+ 0px 0px 0px}.hs-breadcrumb-menu-item{float:left;padding:10px 0px 10px 10px=
+}.hs-breadcrumb-menu-divider:before{content:'=E2=80=BA';padding-left:10px}.=
+hs-featured-image-link{border:0}.hs-featured-image{float:right;margin:0 0 2=
+0px 20px;max-width:50%}@media (max-width: 568px){.hs-featured-image{float:n=
+one;margin:0;width:100%;max-width:100%}}.hs-screen-reader-text{clip:rect(1p=
+x, 1px, 1px, 1px);height:1px;overflow:hidden;position:absolute !important;w=
+idth:1px}
+</style>
+<!-- $$__SECOND_PASS_CSS_HEAD__$$ -->
+    <!--[if gte mso 9]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    <w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word">
+      <w:DontUseAdvancedTypographyReadingMail/>
+    </w:WordDocument>
+  </xml>
+ =20
+  <style>
+    ul > li {
+      text-indent: -1em;
+    }
+  </style>
+<![endif]-->
+<!--[if mso]>
+<style type=3D"text/css">
+ body, td {font-family: Arial, Helvetica, sans-serif;}
+ .hse-body-wrapper-table {background-color: #000000;}
+</style>
+<![endif]-->
+<!--[if mso | IE]>
+  <style type=3D"text/css">
+    .hse-column-container { border: none !important; padding: 0 !important;=
+ }
+  </style>
+<![endif]-->
+   =20
+     =20
+ =20
+ =20
+   =20
+  <meta name=3D"generator" content=3D"HubSpot"><meta property=3D"og:url" co=
+ntent=3D"https://empresas.alura.com.br/-temporary-slug-af0c4ca6-1c1a-4574-b=
+08e-91472e0eca49"><meta name=3D"robots" content=3D"noindex,follow"><!--[if =
+!((mso)|(IE))]><!-- --><style type=3D"text/css">@media only screen and (max=
+-width:639px){img.stretch-on-mobile,.hs_rss_email_entries_table img,.hs-str=
+etch-cta .hs-cta-img{height:auto !important;width:100% !important}
+.display_block_on_small_screens{display:block}.hs_padded{padding-left:20px =
+!important;padding-right:20px !important}
+.hs-hm,table.hs-hm{display:none}.hs-hd{display:block !important}table.hs-hd=
+{display:table !important}
+}@media only screen and (max-width:639px){.hse-border-m{border-left:1px sol=
+id #ccc !important;border-right:1px solid #ccc !important;box-sizing:border=
+-box}
+.hse-border-bottom-m{border-bottom:1px solid #ccc !important}.hse-border-to=
+p-m{border-top:1px solid #ccc !important}
+.hse-border-top-hm{border-top:none !important}.hse-border-bottom-hm{border-=
+bottom:none !important}
+}.moz-text-html .hse-column-container{max-width:600px !important;width:600p=
+x !important}
+.moz-text-html .hse-column{display:table-cell;vertical-align:top}.moz-text-=
+html .hse-section .hse-size-12{max-width:600px !important;width:600px !impo=
+rtant}
+@media only screen and (min-width:640px){.hse-column-container{max-width:60=
+0px !important;width:600px !important}
+.hse-column{display:table-cell;vertical-align:top}.hse-section .hse-size-12=
+{max-width:600px !important;width:600px !important}
+}@media only screen and (max-width:639px){.hse-body-wrapper-td{padding-top:=
+20px !important}
+#section-0 .hse-column-container{background-color:#000 !important} }@media =
+only screen and (max-width:639px){.hse-body-wrapper-td{padding-bottom:20px =
+!important}
+#section-1 .hse-column-container{background-color:transparent !important}#s=
+ection-1 .hse-column-container{background-color:transparent !important}
+}</style><!--<![endif]--><style type=3D"text/css">#hs_body #hs_cos_wrapper_=
+main a[x-apple-data-detectors]{color:inherit !important;text-decoration:non=
+e !important;font-size:inherit !important;font-family:inherit !important;fo=
+nt-weight:inherit !important;line-height:inherit !important}
+a{text-decoration:underline}p{margin:0}body{-ms-text-size-adjust:100%;-webk=
+it-text-size-adjust:100%;-webkit-font-smoothing:antialiased;moz-osx-font-sm=
+oothing:grayscale}
+table{border-spacing:0;mso-table-lspace:0;mso-table-rspace:0}table,td{borde=
+r-collapse:collapse}
+img{-ms-interpolation-mode:bicubic}p,a,li,td,blockquote{mso-line-height-rul=
+e:exactly}
+.ShadowHTML p,.sh-modified-inline p{margin:0}</style></head>
+  <body id=3D"hs_body" bgcolor=3D"#000000" style=3D"margin:0 !important; pa=
+dding:0 !important; font-family:Arial, sans-serif; font-size:18px; color:#f=
+fffff; word-break:break-word">
+   =20
+   =20
+<!--[if gte mso 9]>
+<v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t">
+    <v:fill type=3D"tile" size=3D"100%,100%" color=3D"#ffffff"/>
+</v:background>
+<![endif]-->
+    <div class=3D"hse-body-background" lang=3D"pt" style=3D"background-colo=
+r:#000000" bgcolor=3D"#000000">
+      <table role=3D"presentation" class=3D"hse-body-wrapper-table" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"margin:0; padding:0; width:100% !impo=
+rtant; min-width:320px !important; height:100% !important" width=3D"100%" h=
+eight=3D"100%">
+        <tbody><tr>
+          <td class=3D"hse-body-wrapper-td" valign=3D"top" style=3D"font-fa=
+mily:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:break-wor=
+d; padding-top:20px; padding-bottom:20px">
+            <div id=3D"hs_cos_wrapper_main" class=3D"hs_cos_wrapper hs_cos_=
+wrapper_widget hs_cos_wrapper_type_dnd_area" style=3D"color: inherit; font-=
+size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" d=
+ata-hs-cos-type=3D"dnd_area">  <div id=3D"section-0" class=3D"hse-section h=
+se-section-first" style=3D"padding-left:10px; padding-right:10px">
+   =20
+   =20
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; margin:0 auto; background-color:#000000; padding-bottom:40px; pad=
+ding-top:40px" bgcolor=3D"#000000">
+   =20
+    <!--[if (mso)|(IE)]>
+      <table align=3D"center" style=3D"width:600px;" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#000000">
+      <tr style=3D"background-color:#000000;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-bottom:40px; padding-top:=
+40px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px">
+<![endif]-->
+<div id=3D"column-0-0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_16602228017894" class=3D"hs_cos_wrapper =
+hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; =
+font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widg=
+et" data-hs-cos-type=3D"module"><table class=3D"hse-image-wrapper" role=3D"=
+presentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+  <tbody>
+    <tr>
+      <td class=3D"hs_padded" align=3D"center" valign=3D"top" style=3D"font=
+-family:Arial, sans-serif; color:#ffffff; word-break:break-word; text-align=
+:center; padding:30px 20px; font-size:0px">
+        <img alt=3D"10d9419a-e494-430e-ab1a-2a07d5b386d6" src=3D"https://em=
+presas.alura.com.br/hs-fs/hubfs/10d9419a-e494-430e-ab1a-2a07d5b386d6.png?wi=
+dth=3D536&amp;upscale=3Dtrue&amp;name=3D10d9419a-e494-430e-ab1a-2a07d5b386d=
+6.png" style=3D"outline:none; text-decoration:none; max-width:100%; font-si=
+ze:16px" width=3D"268" align=3D"middle">
+      </td>
+    </tr>
+  </tbody>
+</table></div>
+<div id=3D"hs_cos_wrapper_module_16602257701211" class=3D"hs_cos_wrapper hs=
+_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; fo=
+nt-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget=
+" data-hs-cos-type=3D"module"><table class=3D"hse-image-wrapper" role=3D"pr=
+esentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+  <tbody>
+    <tr>
+      <td class=3D"hs_padded" align=3D"center" valign=3D"top" style=3D"font=
+-family:Arial, sans-serif; color:#ffffff; word-break:break-word; text-align=
+:center; padding:10px 20px; font-size:0px">
+        <img alt=3D"17caf299-2033-4ec8-9d17-0fa6cbe1d1f5" src=3D"https://em=
+presas.alura.com.br/hs-fs/hubfs/17caf299-2033-4ec8-9d17-0fa6cbe1d1f5.png?wi=
+dth=3D736&amp;upscale=3Dtrue&amp;name=3D17caf299-2033-4ec8-9d17-0fa6cbe1d1f=
+5.png" style=3D"outline:none; text-decoration:none; max-width:100%; font-si=
+ze:16px" width=3D"368" align=3D"middle">
+      </td>
+    </tr>
+  </tbody>
+</table></div>
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D"fo=
+nt-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:brea=
+k-word; padding:30px 20px 10px"><div id=3D"hs_cos_wrapper_module-0-0-0" cla=
+ss=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" styl=
+e=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos=
+-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrap=
+per_module-0-0-0_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wra=
+pper_type_rich_text" style=3D"color: inherit; font-size: inherit; line-heig=
+ht: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"rich_=
+text"><p style=3D"font-size:18px; line-height:150%; font-weight:normal"><sp=
+an style=3D"color: #ffffff;">Oie, Luvas, tudo bem? Aqui =C3=A9 a Gi Moeller=
+ do Girl Coding! Fico muito feliz que voc=C3=AA tenha topado fazer esse des=
+afio comigo!</span><br><br><span style=3D"color: #ffffff;">=C3=89 muito imp=
+ortante&nbsp;<span style=3D"font-weight: bold;">sempre praticar nossos conh=
+ecimentos</span>&nbsp;ap=C3=B3s aprender conceitos novos em um curso ou por=
+ conta pr=C3=B3pria, colocando a m=C3=A3o na massa mesmo!</span><br><br><sp=
+an style=3D"color: #ffffff;">Uma pergunta que voc=C3=AA provavelmente j=C3=
+=A1 se fez algum dia =C3=A9: <span style=3D"font-style: italic;">=E2=80=9CT=
+=C3=A1, terminei esse curso, e agora? O que eu fa=C3=A7o?"</span>. Por esse=
+ motivo eu trouxe esse desafio, para voc=C3=AA&nbsp;<span style=3D"font-wei=
+ght: bold;">colocar em pr=C3=A1tica tudo o que voc=C3=AA sabe de HTML e CSS=
+</span>&nbsp;at=C3=A9 agora! Vamos abordar muitos conceitos importantes, co=
+mo&nbsp;<span style=3D"font-weight: bold;">Flexbox</span>,&nbsp;<span style=
+=3D"font-weight: bold;">Grid</span>, entre muitos outros. Ent=C3=A3o, bora =
+come=C3=A7ar?</span><br><br><span style=3D"color: #ffffff;">O escopo do pro=
+jeto =C3=A9 o seguinte:&nbsp;<span style=3D"font-weight: bold;">uma empresa=
+ de TI quer desenvolver uma p=C3=A1gina destinada a novas contrata=C3=A7=C3=
+=B5es e contratou voc=C3=AA para desenvolv=C3=AA-la</span>.</span><br><br><=
+span style=3D"color: #ffffff;">Para isso, te enviaram um layout no Figma. O=
+ Figma =C3=A9 um software que muitos designers utilizam para criar prot=C3=
+=B3tipos. E a partir desse prot=C3=B3tipo que eu vou disponibilizar, voc=C3=
+=AA vai transform=C3=A1-lo em c=C3=B3digo e dar vida real ao projeto! Belez=
+a?</span><br><br><span style=3D"color: #ffffff;">N=C3=A3o se preocupe, porq=
+ue voc=C3=AA n=C3=A3o vai precisar editar nada no Figma ou nem mesmo baixar=
+ o aplicativo. Basta&nbsp;<a href=3D"https://empresas.alura.com.br/e3t/Ctc/=
+I8+113/d2z6gD04/VWpjVX4T3LLKW4_FmW_3rdVxtW8wLjj95MxMLPN8hWs5j3lYM-W8wLKSR6l=
+Z3kJW3Y_3KB1dmlHrN4MNbJPwcTHxW6hykgB6mM94gW607LlL3ls6fCW1S4Cdb8kQ8FBW5MSHql=
+3jzCGMW3BF1b43kxFg0W126K8j5RtMBZW414tZW8jdKzYW6GtqJH2Br73cN6QNdfCTqPpQW5qg8=
+yf1nK3wrW44Mjlt6-vBN8W59Mfl94DLP0TW3PLtNC47N4YmN6yDqSbtzJ0JW5yhTPj6Fb0JvW8n=
+gBjV1XzClZV54f0Q967JQvW96RQm31fv4k_W8dy-jr2-y5_XW8RtVg77py0rJW3xzfS78hqD8gW=
+6F5wzJ9jM-CRW11WpQR3T51xJW1Jb4g27q1KmSW3zWRvx4Pk_NWW2x6_m27lmS99f5QYVj404" =
+target=3D"_blank" style=3D"color:#ffffff" rel=3D"noopener" data-ac-default-=
+color=3D"1" data-hs-link-id=3D"0" data-hs-link-id-v2=3D"w4pvvAkS">acessar e=
+sse link</a>&nbsp;e voc=C3=AA j=C3=A1 vai conseguir&nbsp;visualizar o layou=
+t! L=C3=A1, voc=C3=AA tamb=C3=A9m poder=C3=A1 visualizar todos os valores p=
+ara espa=C3=A7amento, cores do projeto, tamanhos de texto, e muito mais!</s=
+pan><br><br><span style=3D"color: #ffffff;">Agora que voc=C3=AA j=C3=A1 abr=
+iu o Figma do projeto, voc=C3=AA conseguiu ver o que a empresa espera que v=
+oc=C3=AA entregue ao final dos pr=C3=B3ximos 7 dias.</span><br><br><span st=
+yle=3D"color: #ffffff;">Neste primeiro dia,&nbsp;<span style=3D"font-weight=
+: bold;">voc=C3=AA vai desenvolver o cabe=C3=A7alho da aplica=C3=A7=C3=A3o<=
+/span>, chamado normalmente de&nbsp;<span style=3D"font-weight: bold;">Navb=
+ar</span>, que contempla o logo, o menu com as p=C3=A1ginas e tamb=C3=A9m o=
+s dois bot=C3=B5es do canto direito, como aqui abaixo:</span></p></div></di=
+v></td></tr></tbody></table>
+<div id=3D"hs_cos_wrapper_module_16613652656131" class=3D"hs_cos_wrapper hs=
+_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; fo=
+nt-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget=
+" data-hs-cos-type=3D"module"><table class=3D"hse-image-wrapper" role=3D"pr=
+esentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+  <tbody>
+    <tr>
+      <td class=3D"hs_padded" align=3D"center" valign=3D"top" style=3D"font=
+-family:Arial, sans-serif; color:#ffffff; word-break:break-word; text-align=
+:center; padding:10px 20px; font-size:0px">
+        <img alt=3D"98d51df9-0193-482c-83ea-ae23cf5c8e0b" src=3D"https://em=
+presas.alura.com.br/hs-fs/hubfs/98d51df9-0193-482c-83ea-ae23cf5c8e0b.png?wi=
+dth=3D1024&amp;upscale=3Dtrue&amp;name=3D98d51df9-0193-482c-83ea-ae23cf5c8e=
+0b.png" style=3D"outline:none; text-decoration:none; max-width:100%; font-s=
+ize:16px" width=3D"512" align=3D"middle">
+      </td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1660222798790" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; margin:0 auto; background-color:#000000" bgcolor=3D"#000000">
+   =20
+    <!--[if (mso)|(IE)]>
+      <table align=3D"center" style=3D"width:600px;" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#000000">
+      <tr style=3D"background-color:#000000;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px">
+<![endif]-->
+<div id=3D"column_1660222798790_0" class=3D"hse-column hse-size-12">
+    <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D=
+"font-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:b=
+reak-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_166134848972=
+01" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_modul=
+e" style=3D"color: inherit; font-size: inherit; line-height: inherit;" data=
+-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><table role=3D"=
+none" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"vertical-al=
+ign:top" width=3D"100%">
+  <tbody><tr>
+    <td align=3D"center" style=3D"font-family:Arial, sans-serif; color:#fff=
+fff; font-size:0; word-break:break-word">
+      <p style=3D"font-size:1px;border-top:2px solid #ffff03;width:100%;mar=
+gin:0 auto;"></p>
+      <!--[if mso]>
+        <table role=3D"none" align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:1px;border-top:2px solid #ffff03;wid=
+th:560px;">
+          <tr>
+            <td style=3D"height:0;line-height:0">&nbsp;</td>
+          </tr>
+        </table>
+      <![endif]-->
+    </td>
+  </tr>
+</tbody></table></div></td></tr></tbody></table>
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D"fo=
+nt-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:brea=
+k-word; padding:30px 20px 10px"><div id=3D"hs_cos_wrapper_module_1661348492=
+6082" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_mod=
+ule" style=3D"color: inherit; font-size: inherit; line-height: inherit;" da=
+ta-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs=
+_cos_wrapper_module_16613484926082_" class=3D"hs_cos_wrapper hs_cos_wrapper=
+_widget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: =
+inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs=
+-cos-type=3D"rich_text"><div style=3D"line-height:175%"><strong><span style=
+=3D"background-color: yellow; padding: 5px 20px; font-size: 25px; color: bl=
+ack;">DICA</span></strong></div></div></div></td></tr></tbody></table>
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D"fo=
+nt-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:brea=
+k-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_16613484953033"=
+ class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" =
+style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs=
+-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_=
+wrapper_module_16613484953033_" class=3D"hs_cos_wrapper hs_cos_wrapper_widg=
+et hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inher=
+it; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-=
+type=3D"rich_text"><p style=3D"font-size:18px; line-height:150%; font-weigh=
+t:normal">Utilize os conceitos que voc=C3=AA j=C3=A1 aprendeu de HTML e CSS=
+ para estilizar esse cabe=C3=A7alho e separe-o em tr=C3=AAs divis=C3=B3rias=
+: logo, p=C3=A1ginas e bot=C3=B5es. Lembrando que n=C3=A3o =C3=A9 necess=C3=
+=A1rio ir de fato para outra p=C3=A1gina, ou dar alguma funcionalidade para=
+ o bot=C3=A3o.&nbsp;<span style=3D"font-weight: bold;">O intuito deste desa=
+fio =C3=A9 apenas desenvolver o layout</span>.<br><br>Para o logotipo, voc=
+=C3=AA pode exportar a imagem diretamente do arquivo do Figma e, ent=C3=A3o=
+, criar uma pasta dentro do seu projeto para colocar a imagem. Depois, bast=
+a utilizar a tag:<br><br><span style=3D"font-family: 'Courier New', Courier=
+, monospace;">&lt;img src=3D""/&gt;</span><br><br>referenciando a imagem em=
+ quest=C3=A3o.</p></div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1660225216586" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; margin:0 auto; background-color:#000000" bgcolor=3D"#000000">
+   =20
+    <!--[if (mso)|(IE)]>
+      <table align=3D"center" style=3D"width:600px;" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#000000">
+      <tr style=3D"background-color:#000000;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px">
+<![endif]-->
+<div id=3D"module_1660225216586_0" class=3D"hse-column hse-size-12">
+    <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D=
+"font-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:b=
+reak-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_166022521657=
+53" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_modul=
+e" style=3D"color: inherit; font-size: inherit; line-height: inherit;" data=
+-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><table role=3D"=
+none" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"vertical-al=
+ign:top" width=3D"100%">
+  <tbody><tr>
+    <td align=3D"center" style=3D"font-family:Arial, sans-serif; color:#fff=
+fff; font-size:0; word-break:break-word">
+      <p style=3D"font-size:1px;border-top:2px solid #ffff03;width:100%;mar=
+gin:0 auto;"></p>
+      <!--[if mso]>
+        <table role=3D"none" align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:1px;border-top:2px solid #ffff03;wid=
+th:560px;">
+          <tr>
+            <td style=3D"height:0;line-height:0">&nbsp;</td>
+          </tr>
+        </table>
+      <![endif]-->
+    </td>
+  </tr>
+</tbody></table></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1660225230334" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; margin:0 auto; background-color:#000000" bgcolor=3D"#000000">
+   =20
+    <!--[if (mso)|(IE)]>
+      <table align=3D"center" style=3D"width:600px;" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#000000">
+      <tr style=3D"background-color:#000000;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px">
+<![endif]-->
+<div id=3D"module_1660225230334_0" class=3D"hse-column hse-size-12">
+    <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D=
+"font-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:b=
+reak-word; padding:30px 20px 10px"><div id=3D"hs_cos_wrapper_module_1660225=
+2303254" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_=
+module" style=3D"color: inherit; font-size: inherit; line-height: inherit;"=
+ data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D=
+"hs_cos_wrapper_module_16602252303254_" class=3D"hs_cos_wrapper hs_cos_wrap=
+per_widget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-siz=
+e: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data=
+-hs-cos-type=3D"rich_text"><div style=3D"line-height:175%"><strong><span st=
+yle=3D"background-color: #39f6eb; padding: 5px 20px; font-size: 25px; color=
+: black;">EXTRA</span></strong></div></div></div></td></tr></tbody></table>
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D"fo=
+nt-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:brea=
+k-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_16602252303255"=
+ class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" =
+style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs=
+-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_=
+wrapper_module_16602252303255_" class=3D"hs_cos_wrapper hs_cos_wrapper_widg=
+et hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inher=
+it; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-=
+type=3D"rich_text"><p style=3D"font-size:18px; line-height:150%; font-weigh=
+t:normal"><span style=3D"color: #ffffff;">Vamos usar bastante sobre CSS Fle=
+xbox nesse projeto!</span><br><br><span style=3D"color: #ffffff;">Se voc=C3=
+=AA ainda possui algumas d=C3=BAvidas sobre esse assunto, eu tenho dois v=
+=C3=ADdeos no meu canal do Youtube em que eu explico mais sobre isso:</span=
+><br><br><span style=3D"color: #ffffff; font-family: 'Courier New', Courier=
+, monospace;">-&nbsp;<a href=3D"https://empresas.alura.com.br/e3t/Ctc/I8+11=
+3/d2z6gD04/VWpjVX4T3LLKW4_FmW_3rdVxtW8wLjj95MxMLPN8hWs4K3lYM-W7lCdLW6lZ3kRV=
+rzx7s1Wr7_8W23-FcV3lgr-FVV405t90q_hvW81l2BJ1ClFx3W7-zN_v4VZ3QbW8ZCcJ44V8c1Y=
+W6Ny8Zv1QynTDN5NQv5SfhzBGW5mHvHr1zysNhW1W2l-25lS2cdW86XSLH4t4tmtW1zPz971TCt=
+brW7nm_MB2fgN7dVc_gVV3t6H7fW4JP5Vt6k4QK3VckLpT3pgq5KW8NYRVN8M5nn1W15F2PP1GP=
+FHMVpj5HQ67vz5pW32yMqT2mnNGQW79gR722bffCXN5Sj25dSwdsdW2_Z8kH9j5hXPW3_1yvJ8-=
+zl5zf4TSLKM04" target=3D"_blank" style=3D"color:#ffffff" rel=3D"noopener" d=
+ata-ac-default-color=3D"1" data-hs-link-id=3D"0" data-hs-link-id-v2=3D"7J1z=
+xMBe">CSS Flexbox #1 - Flex Container</a></span><br><span style=3D"color: #=
+ffffff; font-family: 'Courier New', Courier, monospace;">-&nbsp;<a href=3D"=
+https://empresas.alura.com.br/e3t/Ctc/I8+113/d2z6gD04/VWpjVX4T3LLKW4_FmW_3r=
+dVxtW8wLjj95MxMLPN8hWs4K3lYM-W7lCdLW6lZ3lsW6d5prM425QpCW8NP72P11_zRzW91cMs-=
+3HHGS5N7NStp5GJswPW1gFXxH4tNZtFW2dm5jx6SwwPHW67JBz394z6_JN1ZRRwCGX_zvN5dM_Q=
+BTfGmQW8SH7B51vGVLQN37gQ56j1hNyN2MKD4xcD_JGW5WdQGq5KRMNcW2Jy7gM3wZC2xVn9hDy=
+7snQkwVHsKqZ4JMJ7GW6-bf642d3m2qW6T5cm645NcV8W8RV-RC2TrPbrW7jZ3Tp9bszCJW3VT1=
+mV6jNdjgW38R0CV1FcZLRW2c6s4-7g-xnSW6ZWxsK9kD2-Nf2kv_rY04" target=3D"_blank"=
+ style=3D"color:#ffffff" rel=3D"noopener" data-ac-default-color=3D"1" data-=
+hs-link-id=3D"0" data-hs-link-id-v2=3D"0DoT4fGI">CSS Flexbox #2 - Flex Item=
+s</a></span></p></div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1660225302636" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; margin:0 auto; background-color:#000000" bgcolor=3D"#000000">
+   =20
+    <!--[if (mso)|(IE)]>
+      <table align=3D"center" style=3D"width:600px;" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#000000">
+      <tr style=3D"background-color:#000000;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px">
+<![endif]-->
+<div id=3D"module_1660225302636_0" class=3D"hse-column hse-size-12">
+    <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D=
+"font-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:b=
+reak-word; padding:30px 20px 10px"><div id=3D"hs_cos_wrapper_module_1660225=
+3026147" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_=
+module" style=3D"color: inherit; font-size: inherit; line-height: inherit;"=
+ data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><table rol=
+e=3D"none" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"vertic=
+al-align:top" width=3D"100%">
+  <tbody><tr>
+    <td align=3D"center" style=3D"font-family:Arial, sans-serif; color:#fff=
+fff; font-size:0; word-break:break-word">
+      <p style=3D"font-size:1px;border-top:2px solid #ffff03;width:100%;mar=
+gin:0 auto;"></p>
+      <!--[if mso]>
+        <table role=3D"none" align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:1px;border-top:2px solid #ffff03;wid=
+th:560px;">
+          <tr>
+            <td style=3D"height:0;line-height:0">&nbsp;</td>
+          </tr>
+        </table>
+      <![endif]-->
+    </td>
+  </tr>
+</tbody></table></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1660225445833" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; margin:0 auto; background-color:#000000" bgcolor=3D"#000000">
+   =20
+    <!--[if (mso)|(IE)]>
+      <table align=3D"center" style=3D"width:600px;" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#000000">
+      <tr style=3D"background-color:#000000;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px">
+<![endif]-->
+<div id=3D"module_1660225445833_0" class=3D"hse-column hse-size-12">
+    <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D=
+"font-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:b=
+reak-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_166022544580=
+416" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_modu=
+le" style=3D"color: inherit; font-size: inherit; line-height: inherit;" dat=
+a-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_=
+cos_wrapper_module_166022544580416_" class=3D"hs_cos_wrapper hs_cos_wrapper=
+_widget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: =
+inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs=
+-cos-type=3D"rich_text"><p style=3D"font-size:18px; line-height:150%; font-=
+weight:normal">Ah, e n=C3=A3o se esque=C3=A7a de compartilhar o seu c=C3=B3=
+digo no seu GitHub e nas suas redes sociais com a hashtag&nbsp;<span style=
+=3D"font-weight: bold;">#7DaysOfCode</span>, e tamb=C3=A9m com&nbsp;<span s=
+tyle=3D"font-weight: bold;">#feedback7DoC</span>&nbsp;caso voc=C3=AA queira=
+ alguma ajuda.<br><br>Bons estudos, at=C3=A9 amanh=C3=A3!<br><br><span styl=
+e=3D"font-size: 20px; color: #f9ff00; font-weight: bold;"><strong>Giovanna =
+Moeller</strong></span><br><span style=3D"font-size: 20px; color: #ffffff;"=
+>Desenvolvedora Web &amp; iOS</span></p></div></div></td></tr></tbody></tab=
+le>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1660225305191" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; margin:0 auto; background-color:#000000" bgcolor=3D"#000000">
+   =20
+    <!--[if (mso)|(IE)]>
+      <table align=3D"center" style=3D"width:600px;" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#000000">
+      <tr style=3D"background-color:#000000;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px">
+<![endif]-->
+<div id=3D"module_1660225305191_0" class=3D"hse-column hse-size-12">
+    <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D=
+"font-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:b=
+reak-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_166022530518=
+28" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_modul=
+e" style=3D"color: inherit; font-size: inherit; line-height: inherit;" data=
+-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><table role=3D"=
+none" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"vertical-al=
+ign:top" width=3D"100%">
+  <tbody><tr>
+    <td align=3D"center" style=3D"font-family:Arial, sans-serif; color:#fff=
+fff; font-size:0; word-break:break-word">
+      <p style=3D"font-size:1px;border-top:2px solid #ffff03;width:100%;mar=
+gin:0 auto;"></p>
+      <!--[if mso]>
+        <table role=3D"none" align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:1px;border-top:2px solid #ffff03;wid=
+th:560px;">
+          <tr>
+            <td style=3D"height:0;line-height:0">&nbsp;</td>
+          </tr>
+        </table>
+      <![endif]-->
+    </td>
+  </tr>
+</tbody></table></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section-1" class=3D"hse-section hse-section-last" style=3D"pad=
+ding-left:10px; padding-right:10px">
+   =20
+   =20
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; margin:0 auto">
+   =20
+    <!--[if (mso)|(IE)]>
+      <table align=3D"center" style=3D"width:600px;" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation">
+      <tr>
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px">
+<![endif]-->
+<div id=3D"column-1-0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_166022535164012" class=3D"hs_cos_wrapper=
+ hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit;=
+ font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"wid=
+get" data-hs-cos-type=3D"module"><table class=3D"hse-image-wrapper" role=3D=
+"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+  <tbody>
+    <tr>
+      <td class=3D"hs_padded" align=3D"center" valign=3D"top" style=3D"font=
+-family:Arial, sans-serif; color:#ffffff; word-break:break-word; text-align=
+:center; padding:30px 20px; font-size:0px">
+        <img alt=3D"429eb4e4-71a8-4ea8-8d19-67ba6f4a95fe" src=3D"https://em=
+presas.alura.com.br/hs-fs/hubfs/429eb4e4-71a8-4ea8-8d19-67ba6f4a95fe.png?wi=
+dth=3D130&amp;upscale=3Dtrue&amp;name=3D429eb4e4-71a8-4ea8-8d19-67ba6f4a95f=
+e.png" style=3D"outline:none; text-decoration:none; max-width:100%; font-si=
+ze:16px" width=3D"65" align=3D"middle">
+      </td>
+    </tr>
+  </tbody>
+</table></div>
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D"fo=
+nt-family:Arial, sans-serif; font-size:18px; color:#ffffff; word-break:brea=
+k-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_16602235348676"=
+ class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" =
+style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs=
+-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><table role=3D"pre=
+sentation" class=3D"hse-footer hse-secondary" width=3D"100%" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"font-family:Arial, sans-serif; font-size:12p=
+x; line-height:135%; color:#23496d; margin-bottom:0; padding:0">
+  <tbody>
+    <tr>
+      <td align=3D"center" valign=3D"top" style=3D"font-family:Arial, sans-=
+serif; font-size:18px; color:#ffffff; word-break:break-word; text-align:cen=
+ter; margin-bottom:0; line-height:135%; padding:10px 20px">
+          <p style=3D"font-size: 10px; line-height: 125%;"><span style=3D"c=
+olor: #ffffff;">Alura, Vila Mariana, S=C3=A3o Paulo, SP</span></p>
+<p style=3D"font-size: 10px; line-height: 125%;">&nbsp;</p>
+<p style=3D"font-size: 10px; line-height: 125%;"><span style=3D"color: #fff=
+fff;"><a href=3D"https://empresas.alura.com.br/hs/preferences-center/pt/dir=
+ect?data=3DW2nXS-N30h-RWW2p0VJM41QVv4W3XvBjL2PPb-KW45W0gN1BMNyhW4kH1TQ23r7L=
+HW3QBhSW2xx9HpW1ZrNdm3M1xMvW2vPc3h4p9LXWW2nVn-r2PKrM7W1ZdXnJ30txTQW3VBkTw3W=
+1z1ZW2w4QCt3ZW3LFW3SBy1q2PmH1bW4pnD3l3_ZBQ3W2qVcpb3XZ6ZVW3zfLNz3_HClZW4cPPd=
+H2vHpyYW38lxQw3XGLw7W4cj94R4hqR2qW2zz54w3JT-_lW4kHNXG234jr2W2r7jWQ4pxXkSW2v=
+QRqV45wd1JW3FdscB2xyv8FW1VgZlr4mJp0rW47QH_z47lLRcW2H-Qd220Z12BW47zmPP32rfP1=
+W1Sf7WV4hCq26W3LFcnB3JX3WnW2Mqq2q2HHy2SW3_Dgz01Sb6ZxW1L6dQB2nHv4lW1YYJkj32j=
+DMTW1_2Fh630mm4qW3yRvbr38h5FPW2FZmQj3LG7kNW4ftvMX3NQFcpW2HywZZ21hSB4W3jmK3n=
+3BJB8BW23l_4t232dGHW2YmlcS1VqwcvW21hmJ14mDJsfW2sRpMX3QCyskW1Btm1H2-Dj4kW38r=
+T2s1V3HwCW4ffs712FFg3QW3_RWKw2FXK-RW3SSJw33Fd1HbW1SkK3h3NT5zSW4mlj3q30sNCKW=
+2MTblV3M63Q2W4mtnX62HPSHVW1ShxfB2RvbMzW36ywSH236tPVW21jDb53K5p530&amp;utm_s=
+ource=3Dhs_automation&amp;utm_medium=3Demail&amp;utm_content=3D231336038&am=
+p;_hsenc=3Dp2ANqtz-_04Z7XGHxEUMnLZ-kfIg5Q34JfkoCA3wFYq_IjIzJlXHJg45T0nQKQME=
+MVO-bld0P4jstL_XRPpGEHp9xPCAXEs53Akw&amp;_hsmi=3D231336038" style=3D"color:=
+#ffffff" rel=3D"noopener" data-unsubscribe=3D"true" data-hs-link-id=3D"0" d=
+ata-hs-link-id-v2=3D"SFRZzEXk" target=3D"_blank">N=C3=A3o quero mais recebe=
+r os Desafios</a></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div></div>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+ =20
+<img src=3D"https://empresas.alura.com.br/e3t/Cto/I8+113/d2z6gD04/VWpjVX4T3=
+LLKW4_FmW_3rdVxtW8wLjj95MxMLPW8hWrSw3D3R4V1b2" alt=3D"" width=3D"1" height=
+=3D"1" border=3D"0" style=3D"display:none!important;min-height:1px!importan=
+t;width:1px!important;border-width:0!important;margin-top:0!important;margi=
+n-bottom:0!important;margin-right:0!important;margin-left:0!important;paddi=
+ng-top:0!important;padding-bottom:0!important;padding-right:0!important;pad=
+ding-left:0!important"></body></html>
+------=_Part_10211973_732731535.1775473264006--
+
