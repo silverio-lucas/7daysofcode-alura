@@ -1,7 +1,8 @@
 :root {
     --primary-color: #8E2424;
     --secondary-color: #667085;
-    --color-black: #101828 --background-color: #FFFFFF;
+    --color-black: #101828;
+    --background-color: #FFFFFF;
     --font-family: "Inter", sans-serif;
 }
 
@@ -112,4 +113,39 @@ header p {
     line-height: 30px;
     max-width: 792px;
     text-align: center;
+}
+
+#metricas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 0 80px;
+}
+
+#metricas .card .numero {
+    color: var(--primary-color);
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 72px;
+    letter-spacing: -1.2px;
+}
+
+#metricas .card p.titulo {
+    color: var(--color-black);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+#metricas .card p.descricao {
+    color: var(--secondary-color);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
 }
