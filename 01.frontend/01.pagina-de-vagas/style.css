@@ -2,6 +2,7 @@
     --primary-color: #8E2424;
     --secondary-color: #667085;
     --color-black: #101828;
+    --gray-200: #EAECF0;
     --background-color: #FFFFFF;
     --font-family: "Inter", sans-serif;
     --space: 96px;
@@ -14,6 +15,10 @@
     box-sizing: border-box;
 }
 
+body {
+    padding: 0 80px
+}
+
 #logo img:hover {
     cursor: pointer;
 }
@@ -22,8 +27,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 80px;
-    padding-right: 80px;
     height: 80px;
     font-size: 16px;
     color: var(--secondary-color);
@@ -120,7 +123,6 @@ header p {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
-    padding: 0 80px;
     padding-bottom: var(--space);
 }
 
@@ -196,11 +198,45 @@ header p {
 #vagas .vagas-img {
     margin-top: 64px;
     margin-bottom: 96px;
-    margin-left: 80px;
-    margin-right: 80px;
 }
 
 #vagas .vagas-img img {
     width: 100%;
     height: auto;
+}
+
+#area {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: start;
+}
+
+#area h3.vaga-tipo {}
+
+#area .vagas-relacionadas {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#area .vaga-tipo {
+    color: var(--color-black);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+#area .vagas-relacionadas .vaga {
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+    border-radius: 16px;
+    border: 1px solid var(--secondary-color);
+    background: var(--gray-200);
 }
