@@ -176,13 +176,15 @@ header p {
     background: rgba(142, 36, 36, 0.05);
 }
 
-#vagas .conteudo h2 {
+#vagas .conteudo h2,
+#depoimentos h2 {
     font-size: 36px;
     font-style: normal;
     font-weight: 600;
     line-height: 44px;
     color: var(--color-black);
     letter-spacing: -0.72px;
+    text-align: center;
 }
 
 #vagas .conteudo p {
@@ -203,6 +205,7 @@ header p {
 #vagas .vagas-img img {
     width: 100%;
     height: auto;
+    border-radius: 8px;
 }
 
 #area {
@@ -213,6 +216,13 @@ header p {
     margin: 0 auto;
     width: 80%;
     padding-bottom: 96px;
+}
+
+#area .conteudo-vaga {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    gap: 32px;
 }
 
 #area h3.vaga-tipo {
@@ -274,8 +284,53 @@ span.titulo-vaga {
     line-height: 24px;
 }
 
-.conteudo-vaga {
+#depoimentos {
+    display: flex;
+    padding: 64px;
+    border-radius: 16px;
+    background: rgba(195, 25, 25, 0.03);
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+    margin-bottom: var(--space);
+}
+
+#depoimentos .texto,
+#depoimentos .avatar {
     display: flex;
     flex-direction: column;
-    align-self: stretch;
+    align-items: center;
+    gap: 16px;
+}
+
+#depoimentos .avatar img {
+    width: 56px;
+}
+
+#depoimentos .avatar .nome-funcao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+#depoimentos .avatar .nome-funcao span.nome-avatar {
+    color: var(--color-black);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+}
+
+#depoimentos .avatar .nome-funcao span.funcao-avatar {
+    color: var(--secondary-color);
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
 }
