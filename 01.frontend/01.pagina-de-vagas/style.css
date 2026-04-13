@@ -15,8 +15,9 @@
     box-sizing: border-box;
 }
 
-body {
-    padding: 0 80px
+section {
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 #logo img:hover {
@@ -28,6 +29,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 80px;
+    padding: 0 80px;
     font-size: 16px;
     color: var(--secondary-color);
 }
@@ -69,7 +71,8 @@ a#button-login:hover {
     cursor: pointer;
 }
 
-a#button-signup {
+a#button-signup,
+#rodape button {
     background-color: var(--primary-color);
     border: 2px solid var(--primary-color);
     color: #FFFFFF;
@@ -177,7 +180,8 @@ header p {
 }
 
 #vagas .conteudo h2,
-#depoimentos h2 {
+#depoimentos h2,
+#rodape h2 {
     font-size: 36px;
     font-style: normal;
     font-weight: 600;
@@ -287,6 +291,7 @@ span.titulo-vaga {
 #depoimentos {
     display: flex;
     padding: 64px;
+    margin: 0 80px;
     border-radius: 16px;
     background: rgba(195, 25, 25, 0.03);
     flex-direction: column;
@@ -333,4 +338,73 @@ span.titulo-vaga {
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
+}
+
+#rodape {
+    display: flex;
+    padding: 96px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+    background: #F9FAFB;
+}
+
+#rodape .newsletter-rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+}
+
+#rodape .texto-rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+#rodape .texto-rodape p {
+    color: var(--secondary-color);
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+#rodape form.email-rodape {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    width: 70%;
+}
+
+#rodape form.email-rodape input {
+    display: flex;
+    padding: 12px 14px 12px 16px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+
+    border-radius: 8px;
+    border: 1px solid #D0D5DD;
+    background: var(--Base-White);
+
+    /* Shadow/xs */
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    width: 100%;
+}
+
+p#copyright {
+    color: #98A2B3;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
 }
